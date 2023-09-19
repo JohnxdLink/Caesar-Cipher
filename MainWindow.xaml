@@ -1,0 +1,77 @@
+﻿<Window x:Class="Caesar_Cipher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Caesar_Cipher"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="#3B3939"
+        Title="MainWindow" Height="500" Width="900">
+    <!--
+        Project: Caesar Cipher
+        Developer: Castro John Christian
+        Message:
+        Date Created: 09/10/2023
+    -->
+
+    <!-- Window Chrome -->
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="10" CaptionHeight="10" />
+    </WindowChrome.WindowChrome>
+    
+    <!-- Whole Container -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="470" />
+        </Grid.RowDefinitions>
+        
+        <!-- Close Button -->
+        <Button x:Name="Close_Btn" Grid.Row="0" Content="●" Style="{StaticResource Ky_Close}" Click="Close_Btn_Click"/>
+
+        <!-- Main Container -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            
+            <!-- Aside Left -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".10*" />
+                    <RowDefinition Height=".70*" />
+                    <RowDefinition Height=".20*" />
+                </Grid.RowDefinitions>
+
+                <!-- Title -->
+                <Label Grid.Row="0" Content="CAESAR CIPHER" Style="{StaticResource Ky_Title}" />
+                
+                <!-- Image Main -->
+                <Image Grid.Row="1" Source="Images/Mobile encryption-amico.png" />
+
+                <!-- Stackpanel Buttons -->
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="Plaintext_Btn" Content="Text" Style="{StaticResource Ky_Buttons}" Click="Plaintext_Btn_Click"/>
+                    <Button x:Name="Encrypt_Btn" Content="Encrpyt" Style="{StaticResource Ky_Buttons}" Click="Encrypt_Btn_Click" IsEnabled="False" />
+                    <Button x:Name="Decrypt_Btn" Content="Decrypt" Style="{StaticResource Ky_Buttons}" Click="Decrypt_Btn_Click" IsEnabled="False" />
+                    <Button x:Name="Clear_Btn" Content="Clear" Style="{StaticResource Ky_Buttons}" Click="Clear_Btn_Click" IsEnabled="False" />
+                </StackPanel>
+            </Grid>
+            
+            <!-- Aside Right -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".20*"/>
+                    <RowDefinition Height=".80*"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Information -->
+                <Label Grid.Row="0" x:Name="Lbl_Info" Content="CLICK TEXT" Style="{StaticResource Ky_Info}" />
+                
+                <!-- Textbox Encrypt/Decrypt -->
+                <TextBox Grid.Row="1" x:Name="Txb_EnDecrypt" Margin="0, 0, 15, 15" Style="{StaticResource Ky_Txb_EnDecrypt}" AcceptsReturn="True" TextWrapping="Wrap" IsEnabled="False"/>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
